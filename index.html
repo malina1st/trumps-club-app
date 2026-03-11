@@ -7,55 +7,91 @@
 <style>
 
 body{
-font-family:Arial;
 background:#111;
 color:white;
+font-family:Arial;
 text-align:center;
+}
+
+h1{
+margin-top:20px;
 }
 
 .calendar{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
-padding:20px;
+gap:25px;
+padding:30px;
+max-width:900px;
+margin:auto;
 }
 
 .month{
 background:#1e1e1e;
-padding:15px;
-border-radius:10px;
+border-radius:12px;
+padding:20px;
 cursor:pointer;
+transition:0.3s;
 }
 
 .month:hover{
 background:#333;
+transform:scale(1.05);
+}
+
+.month-title{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.days{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:5px;
+font-size:12px;
+}
+
+.day{
+padding:4px;
+background:#2b2b2b;
+border-radius:4px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <h1>TRUMPS CLUB</h1>
-<h3>Calendar 2026</h3>
+<h2>Calendar 2026</h2>
 
 <div class="calendar">
 
-<div class="month">January</div>
-<div class="month">February</div>
-<div class="month">March</div>
+<div class="month">
+<div class="month-title">January</div>
+<div class="days">
+<div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+<div class="day">5</div><div class="day">6</div><div class="day">7</div>
+<div class="day">8</div><div class="day">9</div><div class="day">10</div>
+</div>
+</div>
 
-<div class="month">April</div>
-<div class="month">May</div>
-<div class="month">June</div>
+<div class="month">
+<div class="month-title">February</div>
+<div class="days">
+<div class="day">1</div><div class="day">2</div><div class="day">3</div>
+<div class="day">4</div><div class="day">5</div><div class="day">6</div>
+</div>
+</div>
 
-<div class="month">July</div>
-<div class="month">August</div>
-<div class="month">September</div>
-
-<div class="month">October</div>
-<div class="month">November</div>
-<div class="month">December</div>
+<div class="month">
+<div class="month-title">March</div>
+<div class="days">
+<div class="day">1</div><div class="day">2</div><div class="day">3</div>
+<div class="day">4</div><div class="day">5</div><div class="day">6</div>
+</div>
+</div>
 
 </div>
 
