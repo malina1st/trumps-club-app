@@ -316,17 +316,23 @@ day.classList.add("today");
 
 <script>
 
-const monthsElements = document.querySelectorAll(".month");
+const year = 2026;
+const months = document.querySelectorAll(".month");
 
-monthsElements.forEach(month => {
+months.forEach((monthElement, monthIndex) => {
 
-const days = month.querySelectorAll(".day");
+const days = monthElement.querySelectorAll(".day");
 
-days.forEach((day,index) => {
+days.forEach(day => {
 
-const weekday = index % 7;
+const dayNumber = parseInt(day.textContent);
 
-if(weekday === 5 || weekday === 6){
+if(!dayNumber) return;
+
+const date = new Date(year, monthIndex, dayNumber);
+const weekDay = date.getDay();
+
+if(weekDay === 0 || weekDay === 6){
 day.classList.add("weekend");
 }
 
@@ -334,7 +340,7 @@ day.classList.add("weekend");
 
 });
 
-</script>  
+</script>
   
 </body>
 </html>
