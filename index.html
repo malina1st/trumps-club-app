@@ -73,6 +73,12 @@ border-radius:6px;
 padding:6px;
 }
 
+.today{
+background:#FFD700;
+border-radius:4px;
+font-weight:bold;
+}  
+
 .year{
 font-size:60px;
 color:#ff2400;
@@ -278,6 +284,30 @@ window.addEventListener("load", fitCalendar);
 window.addEventListener("resize", fitCalendar);
 
 </script>
+
+<script>
+
+const today = new Date();
+const currentDay = today.getDate();
+const currentMonth = today.getMonth();
+
+const months = document.querySelectorAll(".month");
+
+if(months[currentMonth]){
+
+const days = months[currentMonth].querySelectorAll(".day");
+
+days.forEach(day => {
+
+if(parseInt(day.textContent) === currentDay){
+day.classList.add("today");
+}
+
+});
+
+}
+
+</script>  
   
 </body>
 </html>
