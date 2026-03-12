@@ -317,22 +317,28 @@ day.classList.add("today");
 <script>
 
 const year = 2026;
-const months = document.querySelectorAll(".month");
 
-months.forEach((monthElement, monthIndex) => {
+const monthNames = [
+"Январь","Февраль","Март","Апрель","Май","Июнь",
+"Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"
+];
 
-const days = monthElement.querySelectorAll(".day");
+document.querySelectorAll(".month").forEach(monthBlock => {
+
+const title = monthBlock.querySelector(".month-title").textContent.trim();
+const monthIndex = monthNames.indexOf(title);
+
+const days = monthBlock.querySelectorAll(".day");
 
 days.forEach(day => {
 
-const dayNumber = parseInt(day.textContent);
+const number = parseInt(day.textContent);
+if(!number) return;
 
-if(!dayNumber) return;
+const date = new Date(year, monthIndex, number);
+const weekday = date.getDay();
 
-const date = new Date(year, monthIndex, dayNumber);
-const weekDay = date.getDay();
-
-if(weekDay === 0 || weekDay === 6){
+if(weekday === 0 || weekday === 6){
 day.classList.add("weekend");
 }
 
