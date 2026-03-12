@@ -318,27 +318,20 @@ day.classList.add("today");
 
 const year = 2026;
 
-const monthNames = [
-"Январь","Февраль","Март","Апрель","Май","Июнь",
-"Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"
-];
-
-document.querySelectorAll(".month").forEach(monthBlock => {
-
-const title = monthBlock.querySelector(".month-title").textContent.trim();
-const monthIndex = monthNames.indexOf(title);
+document.querySelectorAll(".month").forEach((monthBlock, monthIndex) => {
 
 const days = monthBlock.querySelectorAll(".day");
 
 days.forEach(day => {
 
-const number = parseInt(day.textContent);
-if(!number) return;
+const dayNumber = parseInt(day.textContent);
 
-const date = new Date(year, monthIndex, number);
+if(!dayNumber) return;
+
+const date = new Date(year, monthIndex, dayNumber);
 const weekday = date.getDay();
 
-if(weekday === 0 || weekday === 6){
+if(weekday === 6 || weekday === 0){
 day.classList.add("weekend");
 }
 
