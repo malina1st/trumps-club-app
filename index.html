@@ -256,21 +256,20 @@ margin:5px;
 function fitCalendar() {
 
 const calendar = document.querySelector(".calendar");
+
 if(!calendar) return;
 
 const windowWidth = window.innerWidth;
-const windowHeight = window.innerHeight;
-
 const calendarWidth = calendar.scrollWidth;
-const calendarHeight = calendar.scrollHeight;
 
-const scaleX = windowWidth / calendarWidth;
-const scaleY = windowHeight / calendarHeight;
+if(calendarWidth > windowWidth){
 
-const scale = Math.min(scaleX, scaleY);
+const scale = windowWidth / calendarWidth;
 
 calendar.style.transform = "scale(" + scale + ")";
 calendar.style.transformOrigin = "top center";
+
+}
 
 }
 
