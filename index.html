@@ -73,6 +73,11 @@ border-radius:6px;
 padding:6px;
 }
 
+.weekend{
+color:orange;
+font-weight:bold;
+}  
+
 .today{
 background:#FFD700;
 border-radius:4px;
@@ -306,6 +311,28 @@ day.classList.add("today");
 });
 
 }
+
+</script>
+
+<script>
+
+const monthsElements = document.querySelectorAll(".month");
+
+monthsElements.forEach(month => {
+
+const days = month.querySelectorAll(".day");
+
+days.forEach((day,index) => {
+
+const weekday = index % 7;
+
+if(weekday === 5 || weekday === 6){
+day.classList.add("weekend");
+}
+
+});
+
+});
 
 </script>  
   
