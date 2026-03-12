@@ -251,14 +251,32 @@ margin:5px;
 
 </div>
 
-  <script>
+<script>
 
-let tg = window.Telegram.WebApp;
+function fitCalendar() {
 
-tg.expand();
+const calendar = document.querySelector(".calendar");
 
-tg.ready();
+if(!calendar) return;
+
+const windowWidth = window.innerWidth;
+const calendarWidth = calendar.scrollWidth;
+
+if(calendarWidth > windowWidth){
+
+const scale = windowWidth / calendarWidth;
+
+calendar.style.transform = "scale(" + scale + ")";
+calendar.style.transformOrigin = "top center";
+
+}
+
+}
+
+window.addEventListener("load", fitCalendar);
+window.addEventListener("resize", fitCalendar);
 
 </script>
+  
 </body>
 </html>
